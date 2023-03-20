@@ -1,6 +1,6 @@
 {
   "name": "ai-review",
-  "version": "0.2.11",
+  "version": "1.0.0",
   "description": "Code review using AI",
   "main": "index.js",
   "bin": {
