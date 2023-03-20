@@ -33,7 +33,7 @@ async function main() {
 
   if (!diff) {
     console.log(
-      "No staged changes found. Make sure there are changes and run `git add .`"
+      "No changes found"
     );
     process.exit(1);
   }
