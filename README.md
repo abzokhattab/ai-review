@@ -10,7 +10,7 @@ npm i -g ai-review
 ```
 - To use you own OpenAI key, use the following command in bash:
 ```
-export OPENAI_API_KEY= XXXXXXXXX
+export OPENAI_API_KEY=XXXXXXXXX
 ```
 - To use the tool, execute the following command inside the project that you want to make the review on:
 ```
