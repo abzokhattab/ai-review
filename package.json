@@ -8,6 +8,7 @@
   },
   "type": "module",
   "author": "Abdelrahman Khattab (@abzokhattab)",
+  "repository": "https://github.com/abzokhattab/ai-review",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
