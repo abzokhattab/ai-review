@@ -1,18 +1,29 @@
 {
   "name": "ai-review",
-  "version": "0.1.0",
+  "version": "0.2.11",
   "description": "Code review using AI",
   "main": "index.js",
   "bin": {
-    "ai-review": "./index.js"
+    "ai-review": "index.js"
   },
   "type": "module",
   "author": "Abdelrahman Khattab (@abzokhattab)",
-  "repository": "https://github.com/abzokhattab/ai-review",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abzokhattab/ai-review.git"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
-    "inquirer": "^9.1.4",
+    "child_process": "^1.0.2",
     "node-fetch": "^3.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/abzokhattab/ai-review/issues"
+  },
+  "homepage": "https://github.com/abzokhattab/ai-review#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

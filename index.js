@@ -2,18 +2,18 @@
 
 import chalk from "chalk";
 import { execSync } from "child_process";
-import inquirer from "inquirer";
 import fetch from "node-fetch";
 
-let OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+let OPENAI_API_KEY =
+  process.env.OPENAI_API_KEY ||
+  "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";
 
 async function main() {
-  console.log(chalk.white("▲ ") + chalk.green("Welcome to AICommit!"));
+  console.log(chalk.green("Welcome to AICommit!"));
 
   if (!OPENAI_API_KEY) {
     console.error(
-      chalk.white("▲ ") +
-        "Please specify an OpenAI key using export OPEN_AI_KEY='YOUR_API_KEY'"
+      "Please specify an OpenAI key using export OPENAI_API_KEY='YOUR_API_KEY'"
     );
     process.exit(1);
   }
@@ -23,36 +23,33 @@ async function main() {
       stdio: "ignore",
     });
   } catch (e) {
-    console.error(chalk.white("▲ ") + "This is not a git repository");
+    console.error("This is not a git repository");
     process.exit(1);
   }
-
-  const diff = execSync("git diff --cached", { encoding: "utf8" });
+  // git add all to cover untracked files
+  execSync("git add -A  ", { encoding: "utf8" });
+  const diff = execSync("git diff HEAD", { encoding: "utf8" });
+  execSync("git reset HEAD", { encoding: "utf8" });
 
   if (!diff) {
     console.log(
-      chalk.white("▲ ") +
-        "No staged changes found. Make sure there are changes and run `git add .`"
+      "No staged changes found. Make sure there are changes and run `git add .`"
     );
     process.exit(1);
   }
 
   // Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
   if (diff.length > 8000) {
-    console.log(
-      chalk.white("▲ ") + "The diff is too large to write a code review."
-    );
+    console.log("The diff is too large to write a code review.");
     process.exit(1);
   }
 
-  let prompt = `I want you to act like a git code reviewer. I will input a git diff and your job is to convert it into a useful code review. Return a complete sentence and do not repeat yourself: ${diff}`;
+  let prompt = `I want you to act like a code reviewer. I'll give you the output of the "git diff" command as an input, and your job is to review the code changes and make suggestions in case you have any. Return a complete sentence without repeating yourself: ${diff}`;
 
-  console.log(
-    chalk.white("▲ ") + chalk.gray("Generating your AI code review...\n")
-  );
+  console.log(chalk.gray("Generating your AI code review...\n"));
   const aiCodeReview = await generateCodeReview(prompt);
 
-  console.log(chalk.white("▲ ") + chalk.bold("Code Review: ") + aiCodeReview);
+  console.log(chalk.bold("Code Review: ") + aiCodeReview);
   console.log("\n");
 }
 
@@ -64,7 +61,7 @@ async function generateCodeReview(prompt) {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    max_tokens: 200,
+    max_tokens: 1000,
     stream: false,
     n: 1,
   };
@@ -78,9 +75,12 @@ async function generateCodeReview(prompt) {
   });
 
   const json = await response.json();
+  if (json.error) {
+    console.error("OpenAI Erorr: " + json.error.message);
+    process.exit(0);
+  }
   const aiCommit = json.choices[0].text;
-
-  return aiCommit.replace(/(\r\n|\n|\r)/gm, "");
+  return aiCommit;
 }
 
 await main();
