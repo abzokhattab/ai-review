@@ -1,14 +1,16 @@
 {
   "name": "ai-review",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Code review using AI",
   "main": "index.js",
   "bin": {
     "ai-review": "index.js"
   },
   "type": "module",
-  "author": "Abdelrahman Khattab (@abzokhattab)",
-  "repository": {
+  "author": {
+    "name": "Abdelrahman Khattab",
+    "email": "abzokhattab@gmail.com"
+  },  "repository": {
     "type": "git",
     "url": "https://github.com/abzokhattab/ai-review.git"
   },
