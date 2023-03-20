@@ -6,7 +6,7 @@ import fetch from "node-fetch";
 
 let OPENAI_API_KEY =
   process.env.OPENAI_API_KEY ||
-  "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";
+  "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";
 
 async function main() {
   console.log(chalk.green("Welcome to AICommit!"));
@@ -32,9 +32,7 @@ async function main() {
   execSync("git reset HEAD", { encoding: "utf8" });
 
   if (!diff) {
-    console.log(
-      "No changes found"
-    );
+    console.log("No changes found");
     process.exit(1);
   }
 
