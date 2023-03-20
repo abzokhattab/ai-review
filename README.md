@@ -1,7 +1,7 @@
 # AI Generated Code Review
 
 ## Description:
-Generates a code review before commiting and pushing git changes using OpenAI GPT 3 model. 
+Generates a code review before commiting and pushing git changes using the OpenAI GPT-3 model. 
 
 ## Install and Usage:
 - To install the package globally, use the following command:
