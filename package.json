@@ -1,0 +1,17 @@
+{
+  "name": "ai-review",
+  "version": "0.1.0",
+  "description": "Code review using AI",
+  "main": "index.js",
+  "bin": {
+    "ai-review": "./index.js"
+  },
+  "type": "module",
+  "author": "Abdelrahman Khattab (@abzokhattab)",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.4",
+    "node-fetch": "^3.3.0"
+  }
+}
