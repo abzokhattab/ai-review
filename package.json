@@ -10,7 +10,7 @@
   "author": "Abdelrahman Khattab (@abzokhattab)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abzokhattab/ai-review.git"
+    "url": "https://github.com/abzokhattab/ai-review.git"
   },
   "license": "MIT",
   "dependencies": {
