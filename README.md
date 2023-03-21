@@ -20,9 +20,9 @@ ai-review
 ## Show cases: 
 
 
-|- | Changes| Review  |
+|Bad Practice Scenario| Changes| Review  |
 |--|--|--|
-| 1| ![First case input](./showcases/first-case-input.png)  |![First case output](./showcases/first-case-output.png)  |
-|2| ![Second case input](./showcases/second-case-input.png)  |![Second case output](./showcases/second-case-output.png)  |
+| Callback hell | ![First case input](./showcases/first-case-input.png)  |![First case output](./showcases/first-case-output.png)  |
+| Hardcoded token | ![Second case input](./showcases/second-case-input.png)  |![Second case output](./showcases/second-case-output.png)  |
 
 
