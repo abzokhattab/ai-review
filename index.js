@@ -9,7 +9,7 @@ let OPENAI_API_KEY =
   "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";
 
 async function main() {
-  console.log(chalk.green("Welcome to AICommit!"));
+  console.log(chalk.green("Welcome to AIReview!"));
 
   if (!OPENAI_API_KEY) {
     console.error(
@@ -77,8 +77,7 @@ async function generateCodeReview(prompt) {
     console.error("OpenAI Erorr: " + json.error.message);
     process.exit(0);
   }
-  const aiCommit = json.choices[0].text;
-  return aiCommit;
+  return json.choices[0]?.text;
 }
 
 await main();
