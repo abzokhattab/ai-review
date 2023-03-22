@@ -4,7 +4,7 @@ import chalk from "chalk";
 import { execSync } from "child_process";
 import fetch from "node-fetch";
 
-let OPENAI_API_KEY =
+const OPENAI_API_KEY =
   process.env.OPENAI_API_KEY ||
   "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";
 
