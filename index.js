@@ -41,7 +41,7 @@ async function main() {
     process.exit(1);
   }
 
-  let prompt = `I want you to act like a code reviewer. I'll give you the output of the "git diff" command as an input, and your job is to review the code changes, spot any bad coding practices and make suggestions in case you have any. Return a complete sentence without repeating yourself: ${diff}`;
+  let prompt = `I want you to act like a code reviewer. I'll give you the output of the "git diff" command as an input, and your job is to review the code changes, spot any bad coding practices and make suggestions in case you have any: ${diff}`;
 
   console.log(chalk.gray("Generating your AI code review...\n"));
   const aiCodeReview = await generateCodeReview(prompt, apiKey);
