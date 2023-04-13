@@ -4,8 +4,7 @@ import chalk from "chalk";
 import { execSync } from "child_process";
 import { generateCodeReview } from "./generateReview.js";
 
-const defaultKey = "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";
-const apiKey = process.env.OPENAI_API_KEY || defaultKey;
+const apiKey = process.env.OPENAI_API_KEY;
 
 async function main() {
   console.log(chalk.green("Welcome to AIReview!"));
